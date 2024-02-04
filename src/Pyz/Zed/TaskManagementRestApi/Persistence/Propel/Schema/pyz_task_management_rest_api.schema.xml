@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<database xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          name="zed"
+          xsi:noNamespaceSchemaLocation="http://static.spryker.com/schema-01.xsd"
+          namespace="Orm\Zed\TaskManagementRestApi\Persistence" package="src.Orm.Zed.TaskManagementRestApi.Persistence">
+
+    <table name="spy_task" idMethod="native">
+        <column name="id_task" required="true" type="INTEGER" primaryKey="true" autoIncrement="true"/>
+        <column name="fk_user" required="true" type="INTEGER"/>
+        <column name="title" required="true" type="VARCHAR"/>
+        <column name="description" type="LONGVARCHAR"/>
+        <column name="due_date" required="true" type="DATE"/>
+        <column name="status" required="true" type="VARCHAR"/>
+        <foreign-key name="spy_task-fk_user" foreignTable="spy_user" phpName="Task" refPhpName="User" onDelete="CASCADE">
+            <reference foreign="id_user" local="fk_user"/>
+        </foreign-key>
+    </table>
+
+</database>
